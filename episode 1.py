@@ -22,7 +22,9 @@ timer = pygame.timer.Clock()
 
 def draw_task(color, y_coord):
   pygame.draw.circle(screen, color, (30, y_coord), 20, 5)
-
+  pygame.draw.rect(screen, color, [70, y_coord - 15, 200, 30])
+  pygame.draw.rect(screen, black, [75, y_coord - 10, 190, 20])
+  
 
 running = True
 while running:
@@ -32,6 +34,6 @@ while running:
       running = False
 
   screen.fill(background)
-  
+  draw_task(green, 50)
   pygame.display.flip()
 pygame.quit()
