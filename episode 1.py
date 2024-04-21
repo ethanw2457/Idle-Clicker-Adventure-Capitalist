@@ -20,6 +20,10 @@ font = pygame.font.Font('freesansbold.ttf', 16)
 timer = pygame.timer.Clock()
 
 
+def draw_task(color, y_coord):
+  pygame.draw.circle(screen, color, (30, y_coord), 20, 5)
+
+
 running = True
 while running:
   timer.tick(framerate)
