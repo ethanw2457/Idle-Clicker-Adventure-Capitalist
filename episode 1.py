@@ -27,10 +27,12 @@ white_value = 4
 purple_value = 5
 
 
-def draw_task(color, y_coord):
+def draw_task(color, y_coord, value):
   pygame.draw.circle(screen, color, (30, y_coord), 20, 5)
   pygame.draw.rect(screen, color, [70, y_coord - 15, 200, 30])
   pygame.draw.rect(screen, black, [75, y_coord - 10, 190, 20])
+  value_text = font.render(str(value), True, white)
+  screen.blit(value_text, (16, y_coord - 10))
   
 
 running = True
@@ -41,10 +43,10 @@ while running:
       running = False
 
   screen.fill(background)
-  draw_task(green, 50)
-  draw_task(red, 110)
-  draw_task(orange, 170)
-  draw_task(white, 230)
-  draw_task(purple, 290)
+  draw_task(green, 50, green_value)
+  draw_task(red, 110, red_value)
+  draw_task(orange, 170, orange_value)
+  draw_task(white, 230, white_value)
+  draw_task(purple, 290, purple_value)
   pygame.display.flip()
 pygame.quit()
