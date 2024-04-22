@@ -35,5 +35,9 @@ while running:
 
   screen.fill(background)
   draw_task(green, 50)
+  draw_task(red, 50)
+  draw_task(orange, 50)
+  draw_task(white, 50)
+  draw_task(purple, 50)
   pygame.display.flip()
 pygame.quit()
