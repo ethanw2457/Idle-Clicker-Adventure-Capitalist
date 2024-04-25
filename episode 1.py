@@ -25,6 +25,12 @@ red_value = 2
 orange_value = 3
 white_value = 4
 purple_value = 5
+draw_green = False
+draw_red = False
+draw_orange = False
+draw_white = False
+draw_purple = False
+
 
 
 def draw_task(color, y_coord, value, draw, length, speed):
@@ -41,7 +47,7 @@ def draw_task(color, y_coord, value, draw, length, speed):
   pygame.draw.rect(screen, color, [70, y_coord - 15, length, 30])
   value_text = font.render(str(value), True, white)
   screen.blit(value_text, (16, y_coord - 10))
-  return task
+  return task, length, draw
   
 
 running = True
