@@ -30,7 +30,16 @@ draw_red = False
 draw_orange = False
 draw_white = False
 draw_purple = False
-
+green_length = 0
+red_length = 0
+orange_length = 0
+white_length = 0
+purple_length = 0
+green_speed = 5
+red_speed = 4
+orange_speed = 3
+white_speed = 2
+purple_speed = 1
 
 
 def draw_task(color, y_coord, value, draw, length, speed):
