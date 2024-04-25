@@ -40,6 +40,7 @@ red_speed = 4
 orange_speed = 3
 white_speed = 2
 purple_speed = 1
+score = 0
 
 
 def draw_task(color, y_coord, value, draw, length, speed):
@@ -67,10 +68,10 @@ while running:
       running = False
 
   screen.fill(background)
-  draw_task(green, 50, green_value)
-  draw_task(red, 110, red_value)
-  draw_task(orange, 170, orange_value)
-  draw_task(white, 230, white_value)
-  draw_task(purple, 290, purple_value)
+  draw_task(green, 50, green_value, draw_green, green_length, green_speed)
+  draw_task(red, 110, red_value, draw_red, red_length, red_speed)
+  draw_task(orange, 170, orange_value, draw_orange, orange_length, orange_speed)
+  draw_task(white, 230, white_value, draw_white, white_length, white_speed)
+  draw_task(purple, 290, purple_value, draw_purple, purple_length, purple_speed)
   pygame.display.flip()
 pygame.quit()
