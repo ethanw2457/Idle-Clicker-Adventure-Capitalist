@@ -66,6 +66,17 @@ while running:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      if task1.collidepoint(event.pos):
+        draw_green = True
+      if task2.collidepoint(event.pos):
+        draw_red = True
+      if task3.collidepoint(event.pos):
+        draw_orange = True
+      if task4.collidepoint(event.pos):
+        draw_white = True
+      if task5.collidepoint(event.pos):
+        draw_purple = True
 
   screen.fill(background)
   task1, green_length, draw_green = draw_task(green, 50, green_value, draw_green, green_length, green_speed)
