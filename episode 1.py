@@ -27,12 +27,21 @@ white_value = 4
 purple_value = 5
 
 
-def draw_task(color, y_coord, value):
-  pygame.draw.circle(screen, color, (30, y_coord), 20, 5)
+def draw_task(color, y_coord, value, draw, length, speed):
+  global score
+  if draw and length < 200:
+    length += speed
+  elif length >= 200:
+    draw = False
+    length = 0
+    score += value
+  task = pygame.draw.circle(screen, color, (30, y_coord), 20, 5)
   pygame.draw.rect(screen, color, [70, y_coord - 15, 200, 30])
   pygame.draw.rect(screen, black, [75, y_coord - 10, 190, 20])
+  pygame.draw.rect(screen, color, [70, y_coord - 15, length, 30])
   value_text = font.render(str(value), True, white)
   screen.blit(value_text, (16, y_coord - 10))
+  return task
   
 
 running = True
