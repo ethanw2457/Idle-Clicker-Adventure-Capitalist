@@ -68,10 +68,10 @@ while running:
       running = False
 
   screen.fill(background)
-  draw_task(green, 50, green_value, draw_green, green_length, green_speed)
-  draw_task(red, 110, red_value, draw_red, red_length, red_speed)
-  draw_task(orange, 170, orange_value, draw_orange, orange_length, orange_speed)
-  draw_task(white, 230, white_value, draw_white, white_length, white_speed)
-  draw_task(purple, 290, purple_value, draw_purple, purple_length, purple_speed)
+  task1, green_length, draw_green = draw_task(green, 50, green_value, draw_green, green_length, green_speed)
+  task2, red_length, draw_red = draw_task(red, 110, red_value, draw_red, red_length, red_speed)
+  task3, orange_length, draw_orange = draw_task(orange, 170, orange_value, draw_orange, orange_length, orange_speed)
+  task4, white_length, draw_white = draw_task(white, 230, white_value, draw_white, white_length, white_speed)
+  task5, purple_length, draw_purple = draw_task(purple, 290, purple_value, draw_purple, purple_length, purple_speed)
   pygame.display.flip()
 pygame.quit()
