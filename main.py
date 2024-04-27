@@ -1,4 +1,4 @@
-# recreation of idle capitalist
+# note for future - make this look cooler with aesthetics
 
 import pygame 
 pygame.init()
