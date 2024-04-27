@@ -112,7 +112,7 @@ while running:
   task3, orange_length, draw_orange = draw_task(orange, 170, orange_value, draw_orange, orange_length, orange_speed)
   task4, white_length, draw_white = draw_task(white, 230, white_value, draw_white, white_length, white_speed)
   task5, purple_length, draw_purple = draw_task(purple, 290, purple_value, draw_purple, purple_length, purple_speed)
-  green_buy, green_manager_buy = draw_buttons(green, 20, green_cost, green_manager_cost)
+  green_buy, green_manager_buy = draw_buttons(green, 50, green_value, green_manager_cost)
   
   display_score = font.render('Money: $' + str(round(score,2)), True, white, black)
   screen.blit(display_score, (10, 5))
