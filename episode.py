@@ -60,6 +60,10 @@ def draw_task(color, y_coord, value, draw, length, speed):
   return task, length, draw
   
 
+def draw_buttons(color, x_coord, cost):
+  color_button = pygame.draw.rect(screen, color, [x_coord, 340, 50, 30])
+  color_cost = font.render(str(color_value), True, white)
+
 running = True
 while running:
   timer.tick(framerate)
