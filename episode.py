@@ -78,14 +78,14 @@ def draw_task(color, y_coord, value, draw, length, speed):
   return task, length, draw
   
 
-def draw_buttons(color, x_coord, cost, manager_cost):
+def draw_buttons(color, x_coord, cost, owned, manager_cost):
   color_button = pygame.draw.rect(screen, color, [x_coord, 340, 50, 30])
+  manager_button = pygame.draw.rect(screen, black, [x_coord, 405, 50, 30])
   color_cost = font.render(str(round(cost, 2)), True, black)
   screen.blit(color_cost, (x_coord + 6, 350))
-  if not owned:
-    manager_button = pygame.draw.rect(screen, color, [x_coord, 405, 50, 30])
-    manager_text = font.render(str(round(manager_cost, 2)), True, black)
-    screen.blit(manager_text, (x_coord + 6, 410))
+  manager_button = pygame.draw.rect(screen, color, [x_coord, 405, 50, 30])
+  manager_text = font.render(str(round(manager_cost, 2)), True, black)
+  screen.blit(manager_text, (x_coord + 6, 410))
   return color_button, manager_button
 
 running = True
