@@ -87,11 +87,15 @@ def draw_buttons(color, x_coord, cost, owned, manager_cost):
     manager_button = pygame.draw.rect(screen, color, [x_coord, 405, 50, 30])
     manager_text = font.render(str(round(manager_cost, 2)), True, black)
     screen.blit(manager_text, (x_coord + 2, 410))
+  else:
+    manager_button = pygame.draw.rect(screen, black, [x_coord, 405, 50, 30])
   return color_button, manager_button
 
 running = True
 while running:
   timer.tick(framerate)
+  if green_owned and not draw_green:
+    draw_green = True
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
@@ -106,6 +110,9 @@ while running:
         draw_white = True
       if task5.collidepoint(event.pos):
         draw_purple = True
+      if green_manager_buy.collidepoint(event.pos) and score >= green_manager_cost and not green_owned:
+        green_owned = True
+        score -= green_manager_cost
 
   screen.fill(background)
   task1, green_length, draw_green = draw_task(green, 50, green_value, draw_green, green_length, green_speed)
