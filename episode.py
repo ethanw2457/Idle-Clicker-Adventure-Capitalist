@@ -73,7 +73,7 @@ def draw_task(color, y_coord, value, draw, length, speed):
   pygame.draw.rect(screen, color, [70, y_coord - 15, 200, 30])
   pygame.draw.rect(screen, black, [75, y_coord - 10, 190, 20])
   pygame.draw.rect(screen, color, [70, y_coord - 15, length, 30])
-  value_text = font.render(str(value), True, white)
+  value_text = font.render(str(round(value, 2)), True, white)
   screen.blit(value_text, (16, y_coord - 10))
   return task, length, draw
   
@@ -96,6 +96,14 @@ while running:
   timer.tick(framerate)
   if green_owned and not draw_green:
     draw_green = True
+  if red_owned and not draw_red:
+    draw_red = True
+  if orange_owned and not draw_orange:
+    draw_orange = True
+  if white_owned and not draw_white:
+    draw_white = True
+  if purple_owned and not draw_purple:
+    draw_purple = True
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
@@ -113,7 +121,40 @@ while running:
       if green_manager_buy.collidepoint(event.pos) and score >= green_manager_cost and not green_owned:
         green_owned = True
         score -= green_manager_cost
+      if red_manager_buy.collidepoint(event.pos) and score >= red_manager_cost and not red_owned:
+        red_owned = True
+        score -= red_manager_cost
+      if orange_manager_buy.collidepoint(event.pos) and score >= orange_manager_cost and not orange_owned:
+        orange_owned = True
+        score -= orange_manager_cost
+      if white_manager_buy.collidepoint(event.pos) and score >= white_manager_cost and not white_owned:
+        white_owned = True
+        score -= white_manager_cost
+      if purple_manager_buy.collidepoint(event.pos) and score >= purple_manager_cost and not purple_owned:
+        purple_owned = True
+        score -= purple_manager_cost
+      if green_buy.collidepoint(event.pos) and score >= green_cost:
+        green_value += 0.15
+        score -= green_cost
+        green_cost += 0.1
+      if red_buy.collidepoint(event.pos) and score >= red_cost:
+        red_value += 0.3
+        score -= red_cost
+        red_cost += 0.2
+      if orange_buy.collidepoint(event.pos) and score >= orange_cost:
+        orange_value += 0.45
+        score -= orange_cost
+        orange_cost += 0.3
+      if white_buy.collidepoint(event.pos) and score >= white_cost:
+        white_value += 0.6
+        score -= white_cost
+        white_cost += 0.4
+      if purple_buy.collidepoint(event.pos) and score >= purple_cost:
+        purple_value += 0.75
+        score -= purple_cost
+        purple_cost += 0.5
 
+  
   screen.fill(background)
   task1, green_length, draw_green = draw_task(green, 50, green_value, draw_green, green_length, green_speed)
   task2, red_length, draw_red = draw_task(red, 110, red_value, draw_red, red_length, red_speed)
