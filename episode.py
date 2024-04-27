@@ -86,7 +86,7 @@ def draw_buttons(color, x_coord, cost, owned, manager_cost):
   if not owned:
     manager_button = pygame.draw.rect(screen, color, [x_coord, 405, 50, 30])
     manager_text = font.render(str(round(manager_cost, 2)), True, black)
-    screen.blit(manager_text, (x_coord + 6, 410))
+    screen.blit(manager_text, (x_coord + 2, 410))
   return color_button, manager_button
 
 running = True
@@ -116,10 +116,14 @@ while running:
   green_buy, green_manager_buy = draw_buttons(green, 10, green_cost, green_owned, green_manager_cost)
   red_buy, red_manager_buy = draw_buttons(red, 70, red_cost, red_owned, red_manager_cost)
   orange_buy, orange_manager_buy = draw_buttons(orange, 130, orange_cost, orange_owned, orange_manager_cost)
-  white_buy, white_manager_buy = draw_buttons(white, 200, white_cost, white_owned, white_manager_cost)
-  purple_buy, purple_manager_buy = draw_buttons(purple, 340, purple_cost, purple_owned, purple_manager_cost)
+  white_buy, white_manager_buy = draw_buttons(white, 190, white_cost, white_owned, white_manager_cost)
+  purple_buy, purple_manager_buy = draw_buttons(purple, 250, purple_cost, purple_owned, purple_manager_cost)
   
   display_score = font.render('Money: $' + str(round(score,2)), True, white, black)
   screen.blit(display_score, (10, 5))
+  buy_more = font.render('Buy More:', True, white)
+  screen.blit(buy_more, (10, 315))
+  buy_managers = font.render('Buy Managers:', True, white)
+  screen.blit(buy_more, (10, 380))
   pygame.display.flip()
 pygame.quit()
