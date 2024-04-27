@@ -42,6 +42,24 @@ white_speed = 2
 purple_speed = 1
 score = 0
 
+# draw buttons function
+green_cost = 1
+green_owned = False
+green_manager_cost = 100
+red_cost = 2
+red_owned = False
+red_manager_cost = 500
+orange_cost = 3
+orange_owned = False
+orange_manager_cost = 2000
+white_cost = 4
+white_owned = False
+white_manager_cost = 5000
+purple_cost = 5
+purple_owned = False
+purple_manager_cost = 10000
+
+
 
 def draw_task(color, y_coord, value, draw, length, speed):
   global score
@@ -60,10 +78,15 @@ def draw_task(color, y_coord, value, draw, length, speed):
   return task, length, draw
   
 
-def draw_buttons(color, x_coord, cost):
+def draw_buttons(color, x_coord, cost, manager_cost):
   color_button = pygame.draw.rect(screen, color, [x_coord, 340, 50, 30])
   color_cost = font.render(str(round(cost, 2)), True, black)
   screen.blit(color_cost, (x_coord + 6, 350))
+  if not owned:
+    manager_button = pygame.draw.rect(screen, color, [x_coord, 405, 50, 30])
+    manager_text = font.render(str(round(manager_cost, 2)), True, black)
+    screen.blit(manager_text, (x_coord + 6, 410))
+  return color_button, manager_button
 
 running = True
 while running:
@@ -89,7 +112,8 @@ while running:
   task3, orange_length, draw_orange = draw_task(orange, 170, orange_value, draw_orange, orange_length, orange_speed)
   task4, white_length, draw_white = draw_task(white, 230, white_value, draw_white, white_length, white_speed)
   task5, purple_length, draw_purple = draw_task(purple, 290, purple_value, draw_purple, purple_length, purple_speed)
-
+  green_buy, green_manager_buy = draw_buttons(green, 20, green_cost, green_manager_cost)
+  
   display_score = font.render('Money: $' + str(round(score,2)), True, white, black)
   screen.blit(display_score, (10, 5))
   pygame.display.flip()
