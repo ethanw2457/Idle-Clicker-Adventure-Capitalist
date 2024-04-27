@@ -124,6 +124,6 @@ while running:
   buy_more = font.render('Buy More:', True, white)
   screen.blit(buy_more, (10, 315))
   buy_managers = font.render('Buy Managers:', True, white)
-  screen.blit(buy_more, (10, 380))
+  screen.blit(buy_managers, (10, 380))
   pygame.display.flip()
 pygame.quit()
